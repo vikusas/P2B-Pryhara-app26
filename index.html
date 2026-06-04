@@ -10,18 +10,15 @@
             background-color: #ffe6ec;
             text-align: center;
             padding: 20px;
-            position: relative;
         }
 
-        /* LOGO */
         img.logo {
             max-width: 400px;
             margin-bottom: 30px;
         }
 
-        /* TABULKA */
         table {
-            margin: 0 auto 30px auto;
+            margin: 0 auto 20px auto;
             border-collapse: collapse;
             width: 60%;
         }
@@ -39,7 +36,6 @@
             width: 60px;
         }
 
-        /* FORMULÁŘ */
         .form-box {
             margin-top: 20px;
         }
@@ -47,7 +43,7 @@
         input[type="text"], input[type="email"], input[type="tel"] {
             width: 300px;
             padding: 10px;
-            margin: 8px 0;
+            margin: 6px 0;
         }
 
         button {
@@ -59,11 +55,13 @@
             font-size: 16px;
         }
 
-        button:hover {
-            background-color: #d35f88;
+        .summary {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
         }
 
-        /* MAŠLIČKY - teď picture.png */
+        /* MAŠLIČKY */
         .bows-left, .bows-right {
             position: fixed;
             top: 0;
@@ -76,29 +74,19 @@
             pointer-events: none;
         }
 
-        .bows-left {
-            left: 0;
-        }
-
-        .bows-right {
-            right: 0;
-        }
-
+        .bows-left { left: 0; }
+        .bows-right { right: 0; }
     </style>
 </head>
 <body>
 
-    <!-- MAŠLIČKY -->
     <div class="bows-left"></div>
     <div class="bows-right"></div>
 
-    <!-- LOGO -->
     <img src="logo.png" alt="Lumiéra logo" class="logo">
 
-    <!-- FORMULÁŘ -->
-    <form action="mailto:pryhara.viktoriia@kostka-skola.cz" method="post" enctype="text/plain">
+    <form oninput="spocitej()">
 
-        <!-- PRODUKTY -->
         <table>
             <tr>
                 <th>Produkt</th>
@@ -109,44 +97,69 @@
             <tr>
                 <td>Pink Whisper</td>
                 <td>189</td>
-                <td><input type="number" name="Pink Whisper" min="0"></td>
+                <td><input type="number" value="0" min="0" data-cena="189"></td>
             </tr>
             <tr>
                 <td>Sweet Blossom</td>
                 <td>209</td>
-                <td><input type="number" name="Sweet Blossom" min="0"></td>
+                <td><input type="number" value="0" min="0" data-cena="209"></td>
             </tr>
             <tr>
                 <td>Angel Glow</td>
                 <td>229</td>
-                <td><input type="number" name="Angel Glow" min="0"></td>
+                <td><input type="number" value="0" min="0" data-cena="229"></td>
             </tr>
             <tr>
                 <td>Cherry Dream</td>
                 <td>219</td>
-                <td><input type="number" name="Cherry Dream" min="0"></td>
+                <td><input type="number" value="0" min="0" data-cena="219"></td>
             </tr>
             <tr>
                 <td>Coquette Kiss</td>
                 <td>249</td>
-                <td><input type="number" name="Coquette Kiss" min="0"></td>
+                <td><input type="number" value="0" min="0" data-cena="249"></td>
             </tr>
         </table>
 
-        <!-- ÚDAJE -->
-        <div class="form-box">
-            <h3>Vaše údaje</h3>
-            <br>
-            <input type="text" name="Jméno" placeholder="Jméno" required><br>
-            <input type="email" name="Email" placeholder="Email" required><br>
-            <input type="tel" name="Telefon" placeholder="Telefon" required><br>
+        <!-- SOUHRN -->
+        <div class="summary">
+            Počet kusů: <span id="kusy">0</span><br>
+            Celková cena: <span id="cena">0</span> Kč
         </div>
 
-        <br><br>
+        <!-- FORM -->
+        <div class="form-box">
+            <h3>Vaše údaje</h3>
+            <input type="text" placeholder="Jméno" required><br>
+            <input type="text" placeholder="Příjmení" required><br>
+            <input type="email" placeholder="Email" required><br>
+            <input type="tel" placeholder="Telefon" required><br>
+        </div>
+
+        <br>
         <button type="submit">Odeslat objednávku</button>
 
     </form>
 
+    <!-- SCRIPT -->
+    <script>
+        function spocitej() {
+            let inputs = document.querySelectorAll('input[type="number"]');
+            let celkemKusu = 0;
+            let celkemCena = 0;
+
+            inputs.forEach(input => {
+                let kusy = parseInt(input.value) || 0;
+                let cena = parseInt(input.dataset.cena);
+                
+                celkemKusu += kusy;
+                celkemCena += kusy * cena;
+            });
+
+            document.getElementById("kusy").innerText = celkemKusu;
+            document.getElementById("cena").innerText = celkemCena;
+        }
+    </script>
+
 </body>
 </html>
-``
