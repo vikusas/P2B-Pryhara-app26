@@ -1,58 +1,143 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <title>Lumiéra objednávka</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8d7dc;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<title>Lumiéra objednávka</title>
 
-        .container {
-            width: 80%;
-            margin: auto;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8d7dc;
+    text-align: center;
+}
 
-        img.logo {
-            width: 300px;
-            margin-top: 20px;
-        }
+.container {
+    width: 80%;
+    margin: auto;
+}
 
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
+.logo {
+    width: 350px;
+    margin-top: 20px;
+}
 
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
+/* tabulka */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: white;
+}
 
-        th {
-            background-color: #f5a9b8;
-        }
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
 
-        input[type="number"], input[type="text"], input[type="email"], input[type="tel"] {
-            width: 90%;
-            padding: 5px;
-        }
+th {
+    background-color: #f5a9b8;
+}
 
-        .form-section {
-            margin-top: 30px;
-        }
+/* inputy */
+input {
+    padding: 8px;
+    width: 90%;
+}
 
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #e88ca0;
-            border: none;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
+.form-section {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
 
-        button:hover {
-<html>
+/* tlačítko */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #e88ca0;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #d56b82;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LOGO -->
+    <img src="Multimedia.jpg" class="logo">
+
+    <!-- FORMULÁŘ -->
+    <form action="mailto:pryhara.viktoriia@kostka-skola.cz" method="post" enctype="text/plain">
+
+        <!-- PRODUKTY -->
+        <table>
+            <tr>
+                <th>Produkt</th>
+                <th>Cena (Kč)</th>
+                <th>Množství</th>
+            </tr>
+
+            <tr>
+                <td>Pink Whisper</td>
+                <td>189</td>
+                <td><input type="number" name="Pink Whisper" min="0"></td>
+            </tr>
+
+            <tr>
+                <td>Sweet Blossom</td>
+                <td>209</td>
+                <td><input type="number" name="Sweet Blossom" min="0"></td>
+            </tr>
+
+            <tr>
+                <td>Angel Glow</td>
+                <td>229</td>
+                <td><input type="number" name="Angel Glow" min="0"></td>
+            </tr>
+
+            <tr>
+                <td>Cherry Dream</td>
+                <td>219</td>
+                <td><input type="number" name="Cherry Dream" min="0"></td>
+            </tr>
+
+            <tr>
+                <td>Coquette Kiss</td>
+                <td>249</td>
+                <td><input type="number" name="Coquette Kiss" min="0"></td>
+            </tr>
+        </table>
+
+        <!-- KONTAKT -->
+        <div class="form-section">
+            <h3>Vaše údaje</h3>
+
+            <p>Jméno:<br>
+            <input type="text" name="Jméno" required></p>
+
+            <p>Email:<br>
+            <input type="email" name="Email" required></p>
+
+            <p>Telefon:<br>
+            <input type="tel" name="Telefon" required></p>
+        </div>
+
+        <!-- ODESLAT -->
+        <button type="submit">Odeslat objednávku</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
