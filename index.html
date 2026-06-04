@@ -1,80 +1,68 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<title>Lumiéra objednávka</title>
+    <meta charset="UTF-8">
+    <title>Lumiéra objednávka</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6ec;
+            text-align: center;
+            padding: 20px;
+        }
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8d7dc;
-    text-align: center;
-}
+        img.logo {
+            max-width: 400px;
+            margin-bottom: 30px;
+        }
 
-.container {
-    width: 80%;
-    margin: auto;
-}
+        table {
+            margin: 0 auto 30px auto;
+            border-collapse: collapse;
+            width: 60%;
+        }
 
-.logo {
-    width: 350px;
-    margin-top: 20px;
-}
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+        }
 
-/* tabulka */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    background: white;
-}
+        th {
+            background-color: #f8c8d8;
+        }
 
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-}
+        input[type="number"] {
+            width: 60px;
+        }
 
-th {
-    background-color: #f5a9b8;
-}
+        .form-box {
+            margin-top: 20px;
+        }
 
-/* inputy */
-input {
-    padding: 8px;
-    width: 90%;
-}
+        input[type="text"], input[type="email"], input[type="tel"] {
+            width: 300px;
+            padding: 10px;
+            margin: 8px 0;
+        }
 
-.form-section {
-    margin-top: 30px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
+        button {
+            background-color: #e07a9e;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-/* tlačítko */
-button {
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: #e88ca0;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #d56b82;
-}
-</style>
+        button:hover {
+            background-color: #d35f88;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-
     <!-- LOGO -->
-    <img src="Multimedia.jpg" class="logo">
+    <img src="logo.jpg" alt="Lumiéra logo" class="logo">
 
     <!-- FORMULÁŘ -->
     <form action="mailto:pryhara.viktoriia@kostka-skola.cz" method="post" enctype="text/plain">
@@ -92,52 +80,43 @@ button:hover {
                 <td>189</td>
                 <td><input type="number" name="Pink Whisper" min="0"></td>
             </tr>
-
             <tr>
                 <td>Sweet Blossom</td>
                 <td>209</td>
                 <td><input type="number" name="Sweet Blossom" min="0"></td>
             </tr>
-
             <tr>
                 <td>Angel Glow</td>
                 <td>229</td>
                 <td><input type="number" name="Angel Glow" min="0"></td>
             </tr>
-
             <tr>
                 <td>Cherry Dream</td>
                 <td>219</td>
                 <td><input type="number" name="Cherry Dream" min="0"></td>
             </tr>
-
             <tr>
                 <td>Coquette Kiss</td>
                 <td>249</td>
                 <td><input type="number" name="Coquette Kiss" min="0"></td>
             </tr>
+
         </table>
 
-        <!-- KONTAKT -->
-        <div class="form-section">
+        <!-- ÚDAJE ZÁKAZNÍKA -->
+        <div class="form-box">
             <h3>Vaše údaje</h3>
-
-            <p>Jméno:<br>
-            <input type="text" name="Jméno" required></p>
-
-            <p>Email:<br>
-            <input type="email" name="Email" required></p>
-
-            <p>Telefon:<br>
-            <input type="tel" name="Telefon" required></p>
+            <br>
+            <input type="text" name="Jméno" placeholder="Jméno" required><br>
+            <input type="email" name="Email" placeholder="Email" required><br>
+            <input type="tel" name="Telefon" placeholder="Telefon" required><br>
         </div>
 
         <!-- ODESLAT -->
+        <br><br>
         <button type="submit">Odeslat objednávku</button>
 
     </form>
-
-</div>
 
 </body>
 </html>
