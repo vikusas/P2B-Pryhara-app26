@@ -61,7 +61,6 @@
             font-weight: bold;
         }
 
-        /* MAŠLIČKY */
         .bows-left, .bows-right {
             position: fixed;
             top: 0;
@@ -80,86 +79,84 @@
 </head>
 <body>
 
-    <div class="bows-left"></div>
-    <div class="bows-right"></div>
+<div class="bows-left"></div>
+<div class="bows-right"></div>
 
-    <img src="logo.png" alt="Lumiéra logo" class="logo">
+<img src="logo.png" class="logo">
 
-    <form oninput="spocitej()">
+<!-- ✅ EMAIL ODESÍLÁNÍ -->
+<form action="mailto:app@kostka-skola.cz" method="post" enctype="text/plain" oninput="spocitej()">
 
-        <table>
-            <tr>
-                <th>Produkt</th>
-                <th>Cena (Kč)</th>
-                <th>Množství</th>
-            </tr>
+    <table>
+        <tr>
+            <th>Produkt</th>
+            <th>Cena</th>
+            <th>Množství</th>
+        </tr>
 
-            <tr>
-                <td>Pink Whisper</td>
-                <td>189</td>
-                <td><input type="number" value="0" min="0" data-cena="189"></td>
-            </tr>
-            <tr>
-                <td>Sweet Blossom</td>
-                <td>209</td>
-                <td><input type="number" value="0" min="0" data-cena="209"></td>
-            </tr>
-            <tr>
-                <td>Angel Glow</td>
-                <td>229</td>
-                <td><input type="number" value="0" min="0" data-cena="229"></td>
-            </tr>
-            <tr>
-                <td>Cherry Dream</td>
-                <td>219</td>
-                <td><input type="number" value="0" min="0" data-cena="219"></td>
-            </tr>
-            <tr>
-                <td>Coquette Kiss</td>
-                <td>249</td>
-                <td><input type="number" value="0" min="0" data-cena="249"></td>
-            </tr>
-        </table>
+        <tr>
+            <td>Pink Whisper</td>
+            <td>189</td>
+            <td><input type="number" name="Pink Whisper" value="0" min="0" data-cena="189"></td>
+        </tr>
+        <tr>
+            <td>Sweet Blossom</td>
+            <td>209</td>
+            <td><input type="number" name="Sweet Blossom" value="0" min="0" data-cena="209"></td>
+        </tr>
+        <tr>
+            <td>Angel Glow</td>
+            <td>229</td>
+            <td><input type="number" name="Angel Glow" value="0" min="0" data-cena="229"></td>
+        </tr>
+        <tr>
+            <td>Cherry Dream</td>
+            <td>219</td>
+            <td><input type="number" name="Cherry Dream" value="0" min="0" data-cena="219"></td>
+        </tr>
+        <tr>
+            <td>Coquette Kiss</td>
+            <td>249</td>
+            <td><input type="number" name="Coquette Kiss" value="0" min="0" data-cena="249"></td>
+        </tr>
+    </table>
 
-        <!-- SOUHRN -->
-        <div class="summary">
-            Počet kusů: <span id="kusy">0</span><br>
-            Celková cena: <span id="cena">0</span> Kč
-        </div>
+    <div class="summary">
+        Počet kusů: <span id="kusy">0</span><br>
+        Celková cena: <span id="cena">0</span> Kč
+    </div>
 
-        <!-- FORM -->
-        <div class="form-box">
-            <h3>Vaše údaje</h3>
-            <input type="text" placeholder="Jméno" required><br>
-            <input type="text" placeholder="Příjmení" required><br>
-            <input type="email" placeholder="Email" required><br>
-            <input type="tel" placeholder="Telefon" required><br>
-        </div>
+    <div class="form-box">
+        <h3>Vaše údaje</h3>
+        <input type="text" name="Jméno" placeholder="Jméno" required><br>
+        <input type="text" name="Příjmení" placeholder="Příjmení" required><br>
+        <input type="email" name="Email" placeholder="Email" required><br>
+        <input type="tel" name="Telefon" placeholder="Telefon" required><br>
+    </div>
 
-        <br>
-        <button type="submit">Odeslat objednávku</button>
+    <br>
+    <button type="submit">Odeslat objednávku</button>
 
-    </form>
+</form>
 
-    <!-- SCRIPT -->
-    <script>
-        function spocitej() {
-            let inputs = document.querySelectorAll('input[type="number"]');
-            let celkemKusu = 0;
-            let celkemCena = 0;
+<script>
+function spocitej() {
+    let inputs = document.querySelectorAll('input[type="number"]');
+    let celkemKusu = 0;
+    let celkemCena = 0;
 
-            inputs.forEach(input => {
-                let kusy = parseInt(input.value) || 0;
-                let cena = parseInt(input.dataset.cena);
-                
-                celkemKusu += kusy;
-                celkemCena += kusy * cena;
-            });
+    inputs.forEach(input => {
+        let kusy = parseInt(input.value) || 0;
+        let cena = parseInt(input.dataset.cena);
 
-            document.getElementById("kusy").innerText = celkemKusu;
-            document.getElementById("cena").innerText = celkemCena;
-        }
-    </script>
+        celkemKusu += kusy;
+        celkemCena += kusy * cena;
+    });
+
+    document.getElementById("kusy").innerText = celkemKusu;
+    document.getElementById("cena").innerText = celkemCena;
+}
+</script>
 
 </body>
 </html>
