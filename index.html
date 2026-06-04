@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Lumiéra objednávka</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #ffe6ec;
             text-align: center;
             padding: 20px;
+            position: relative;
         }
 
+        /* LOGO */
         img.logo {
             max-width: 400px;
             margin-bottom: 30px;
         }
 
+        /* TABULKA */
         table {
             margin: 0 auto 30px auto;
             border-collapse: collapse;
@@ -35,6 +39,7 @@
             width: 60px;
         }
 
+        /* FORMULÁŘ */
         .form-box {
             margin-top: 20px;
         }
@@ -57,12 +62,39 @@
         button:hover {
             background-color: #d35f88;
         }
+
+        /* MAŠLIČKY PO KRAJÍCH */
+        .bows-left, .bows-right {
+            position: fixed;
+            top: 0;
+            width: 80px;
+            height: 100%;
+            background-image: url('logo.png');
+            background-repeat: repeat-y;
+            background-size: 60px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .bows-left {
+            left: 0;
+        }
+
+        .bows-right {
+            right: 0;
+        }
+
     </style>
 </head>
 <body>
 
+    <!-- MAŠLIČKY -->
+    <div class="bows-left"></div>
+    <div class="bows-right"></div>
+
     <!-- LOGO -->
-    <img src="logo.jpg" alt="Lumiéra logo" class="logo">
+    <img src="logo.png" alt="Lumiéra logo" class="logo">
+
 
     <!-- FORMULÁŘ -->
     <form action="mailto:pryhara.viktoriia@kostka-skola.cz" method="post" enctype="text/plain">
@@ -100,10 +132,9 @@
                 <td>249</td>
                 <td><input type="number" name="Coquette Kiss" min="0"></td>
             </tr>
-
         </table>
 
-        <!-- ÚDAJE ZÁKAZNÍKA -->
+        <!-- ÚDAJE -->
         <div class="form-box">
             <h3>Vaše údaje</h3>
             <br>
@@ -112,7 +143,6 @@
             <input type="tel" name="Telefon" placeholder="Telefon" required><br>
         </div>
 
-        <!-- ODESLAT -->
         <br><br>
         <button type="submit">Odeslat objednávku</button>
 
@@ -120,3 +150,4 @@
 
 </body>
 </html>
+``
